@@ -1,0 +1,66 @@
+site_name: SQUADRON
+site_description: A science fiction novel in development
+site_author: Greg Anthony
+theme:
+  name: material
+  palette:
+    - scheme: slate
+      primary: cyan
+      accent: amber
+  font:
+    text: Inter
+    code: Fira Code
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - toc.follow
+    - search.suggest
+    - search.highlight
+
+plugins:
+  - search
+  - table-reader
+
+markdown_extensions:
+  - toc:
+      permalink: true
+  - tables
+  - attr_list
+  - md_in_html
+
+nav:
+  - Home: index.md
+  - Foundation:
+      - Premise: foundation/premise.md
+      - Themes: foundation/themes.md
+      - Narrative Rules: foundation/narrative_rules.md
+      - Foundation v0.2: foundation/foundation_v0.2.md
+  - Story:
+      - Book One Treatment: novel/book_01/treatment.md
+      - Master Timeline: history/master_timeline.md
+  - Characters:
+      - Greg: characters/greg.md
+      - Markus: characters/markus.md
+      - Admiral Veyr: characters/veyr.md
+      - Older Man: characters/older_man.md
+      - Adam: characters/adam.md
+      - Kristina: characters/kristina.md
+      - Rafa: characters/rafa.md
+      - RJ: characters/rj.md
+  - World:
+      - Colony World: world/colony_world.md
+      - Devastation War: world/devastation_war.md
+      - Frontier War: world/frontier_war.md
+      - Continuity System: world/continuity.md
+  - Mystery:
+      - White Ship: mystery/white_ship.md
+  - Archive:
+      - Canon Ledger: CANON_LEDGER.md
+      - Decisions: DECISIONS.md
+      - Changelog: CHANGELOG.md
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/markusclaw/squadron-novel
