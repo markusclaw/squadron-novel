@@ -1,241 +1,368 @@
 /* ==========================================================================
-   SQUADRON — restrained dark editorial theme
-   Classified military archive + literary manuscript workspace.
+   SQUADRON — editorial theme (light + dark)
+   Classified military archive x literary manuscript.
    ========================================================================== */
 
-:root > * {
-  --sq-bg:        #0a0d12;   /* near-black, faint navy */
-  --sq-bg-2:      #10141b;   /* raised surface */
-  --sq-bg-3:      #161b24;   /* cards / code */
-  --sq-fg:        #e8e9ea;   /* off-white body */
-  --sq-fg-muted:  #9aa4b2;   /* steel-gray secondary */
-  --sq-fg-faint:  #6b7482;   /* faintest labels */
-  --sq-line:      #232a34;   /* hairlines */
-  --sq-cyan:      #5ec8d8;   /* restrained accent */
-  --sq-cyan-dim:  #3f97a6;
-  --sq-amber:     #d9a441;   /* PROVISIONAL */
-  --sq-red:       #cf6b6b;   /* REJECTED / warnings */
-  --sq-green:     #6fbf8f;   /* CANON / operational */
-}
+/* ---------- LIGHT (default): warm paper, ink, restrained teal ---------- */
+[data-md-color-scheme="default"] {
+  --sq-bg:        #f8f7f2;
+  --sq-bg-2:      #f1efe8;
+  --sq-bg-3:      #eae7dd;
+  --sq-fg:        #22252b;
+  --sq-fg-muted:  #59616c;
+  --sq-fg-faint:  #8b909a;
+  --sq-line:      #e2ded2;
+  --sq-cyan:      #1c6c7a;
+  --sq-cyan-dim:  #2e8394;
+  --sq-amber:     #93650f;
+  --sq-red:       #ac403a;
+  --sq-green:     #2d7a51;
 
-/* --- Material palette overrides (slate scheme) --- */
-[data-md-color-scheme="slate"] {
-  --md-default-bg-color:        var(--sq-bg);
-  --md-default-fg-color:        var(--sq-fg);
-  --md-default-fg-color--light: var(--sq-fg-muted);
+  --md-default-bg-color:          var(--sq-bg);
+  --md-default-fg-color:          var(--sq-fg);
+  --md-default-fg-color--light:   var(--sq-fg-muted);
   --md-default-fg-color--lighter: var(--sq-fg-faint);
-  --md-typeset-color:           var(--sq-fg);
-  --md-primary-fg-color:        var(--sq-bg);
-  --md-primary-bg-color:        var(--sq-fg);
-  --md-accent-fg-color:         var(--sq-cyan);
-  --md-typeset-a-color:         var(--sq-cyan);
-  --md-code-bg-color:           var(--sq-bg-3);
-  --md-code-fg-color:           #cdd6e0;
-  --md-default-fg-color--lightest: #1b2029;
+  --md-default-fg-color--lightest:#efece2;
+  --md-typeset-color:             var(--sq-fg);
+  --md-primary-fg-color:          var(--sq-bg-2);
+  --md-primary-bg-color:          var(--sq-fg);
+  --md-accent-fg-color:           var(--sq-cyan);
+  --md-typeset-a-color:           var(--sq-cyan);
+  --md-code-bg-color:             var(--sq-bg-3);
+  --md-code-fg-color:             #3a3f47;
 }
 
-/* --- Long-form reading: comfortable column, generous rhythm --- */
-.md-grid { max-width: 68rem; }
+/* ---------- DARK (slate): near-black navy, off-white ---------- */
+[data-md-color-scheme="slate"] {
+  --sq-bg:        #0a0d12;
+  --sq-bg-2:      #10141b;
+  --sq-bg-3:      #161b24;
+  --sq-fg:        #e9eaec;
+  --sq-fg-muted:  #9aa4b2;
+  --sq-fg-faint:  #6b7482;
+  --sq-line:      #232a34;
+  --sq-cyan:      #5ec8d8;
+  --sq-cyan-dim:  #3f97a6;
+  --sq-amber:     #d9a441;
+  --sq-red:       #cf6b6b;
+  --sq-green:     #6fbf8f;
+
+  --md-default-bg-color:          var(--sq-bg);
+  --md-default-fg-color:          var(--sq-fg);
+  --md-default-fg-color--light:   var(--sq-fg-muted);
+  --md-default-fg-color--lighter: var(--sq-fg-faint);
+  --md-default-fg-color--lightest:#1b2029;
+  --md-typeset-color:             var(--sq-fg);
+  --md-primary-fg-color:          var(--sq-bg);
+  --md-primary-bg-color:          var(--sq-fg);
+  --md-accent-fg-color:           var(--sq-cyan);
+  --md-typeset-a-color:           var(--sq-cyan);
+  --md-code-bg-color:             var(--sq-bg-3);
+  --md-code-fg-color:             #cdd6e0;
+}
+
+/* ==========================================================================
+   READING SURFACE — long-form editorial rhythm
+   ========================================================================== */
+.md-grid { max-width: 66rem; }
 
 .md-typeset {
-  font-size: 0.86rem;
-  line-height: 1.75;
-  letter-spacing: 0.1px;
+  font-size: 0.855rem;
+  line-height: 1.82;
+  letter-spacing: 0.05px;
 }
-.md-content__inner { margin-top: 1.2rem; }
+.md-content__inner { margin-top: 1.4rem; padding-bottom: 3rem; }
 
-/* Constrain prose measure to ~760px for readability; keep tables/code wider */
+/* Comfortable prose measure (~640px); tables, code and media stay wider */
 .md-typeset > p,
 .md-typeset > ul,
 .md-typeset > ol,
 .md-typeset > blockquote,
+.md-typeset > dl,
 .md-typeset > h1,
 .md-typeset > h2,
 .md-typeset > h3,
-.md-typeset > h4,
-.md-typeset > dl {
-  max-width: 47rem;
+.md-typeset > h4 {
+  max-width: 40rem;
 }
 
+/* Paragraph rhythm */
+.md-typeset p { margin: 0 0 1.15em; }
+
+/* Lead paragraph: the first paragraph after the page title reads larger + quieter */
+.md-typeset h1 + p {
+  font-size: 1.06rem;
+  line-height: 1.7;
+  color: var(--sq-fg-muted);
+  margin-bottom: 1.6em;
+}
+
+/* Headings — serif, quiet authority */
 .md-typeset h1,
 .md-typeset h2,
-.md-typeset h3 {
-  font-weight: 600;
-  letter-spacing: 0.2px;
-  color: #f3f4f5;
+.md-typeset h3,
+.md-typeset h4 {
+  font-family: "Source Serif 4", Georgia, serif;
+  color: var(--sq-fg);
+  text-wrap: balance;
 }
 .md-typeset h1 {
-  font-size: 1.7rem;
-  text-transform: none;
+  font-size: 2.1rem;
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: 0.01em;
+  margin-bottom: 0.9rem;
 }
 .md-typeset h2 {
-  margin-top: 2.4em;
-  padding-bottom: 0.3em;
+  font-size: 1.42rem;
+  font-weight: 600;
+  line-height: 1.2;
+  margin: 2.8em 0 0.9em;
+  padding-bottom: 0.35em;
   border-bottom: 1px solid var(--sq-line);
 }
-
-/* Header bar — flat, dark, no shadow bloom */
-.md-header {
-  background: var(--sq-bg-2);
-  border-bottom: 1px solid var(--sq-line);
-  box-shadow: none;
+.md-typeset h3 {
+  font-size: 1.12rem;
+  font-weight: 600;
+  margin: 2.1em 0 0.6em;
+  color: var(--sq-fg);
 }
-.md-header__title { font-weight: 600; letter-spacing: 2px; }
-.md-tabs { background: var(--sq-bg-2); }
+.md-typeset h4 {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--sq-fg-muted);
+  margin: 1.9em 0 0.5em;
+}
 
-/* Sidebars */
-.md-sidebar { font-size: 0.72rem; }
-.md-nav__title { color: var(--sq-fg-faint); letter-spacing: 1px; text-transform: uppercase; }
+/* Lists — a touch more air */
+.md-typeset ul, .md-typeset ol { margin: 0 0 1.15em; }
+.md-typeset li { margin-bottom: 0.4em; }
+.md-typeset li::marker { color: var(--sq-fg-faint); }
 
-/* Links */
-.md-typeset a { text-decoration: none; border-bottom: 1px solid transparent; }
-.md-typeset a:hover { border-bottom-color: var(--sq-cyan-dim); }
+/* Links — hairline underline with offset */
+.md-typeset a {
+  color: var(--sq-cyan);
+  text-decoration: none;
+  border-bottom: 1px solid color-mix(in srgb, var(--sq-cyan) 32%, transparent);
+  transition: border-color .15s ease, color .15s ease;
+}
+.md-typeset a:hover { border-bottom-color: var(--sq-cyan); }
 
-/* Blockquote → epigraph feel */
+/* Blockquote → epigraph */
 .md-typeset blockquote {
   border-left: 2px solid var(--sq-cyan-dim);
+  padding: 0.1em 0 0.1em 1.25em;
+  margin: 1.6em 0;
   color: var(--sq-fg-muted);
   font-style: italic;
+  font-size: 0.95rem;
+}
+.md-typeset blockquote p { margin-bottom: 0.6em; }
+
+/* Horizontal rule → quiet section break */
+.md-typeset hr {
+  border: 0;
+  height: 1px;
+  background: var(--sq-line);
+  margin: 2.6em 0;
 }
 
-/* ==========================================================================
-   STATUS BADGES  —  ● CANON  ◆ PROVISIONAL  ○ OPEN  × REJECTED
-   Usage in Markdown:  <span class="sq-badge canon">CANON</span>
-   ========================================================================== */
-.sq-badge {
-  display: inline-block;
-  font-family: "JetBrains Mono", monospace;
-  font-size: 0.62rem;
-  font-weight: 600;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  padding: 0.12em 0.55em;
-  border-radius: 3px;
-  border: 1px solid currentColor;
-  vertical-align: middle;
-  line-height: 1.6;
-}
-.sq-badge::before { margin-right: 0.45em; }
-.sq-badge.canon       { color: var(--sq-green); }
-.sq-badge.canon::before       { content: "●"; }
-.sq-badge.provisional { color: var(--sq-amber); }
-.sq-badge.provisional::before { content: "◆"; }
-.sq-badge.open        { color: var(--sq-fg-muted); }
-.sq-badge.open::before        { content: "○"; }
-.sq-badge.rejected    { color: var(--sq-red); }
-.sq-badge.rejected::before    { content: "×"; }
-
-/* Page-level status line */
-.sq-status {
-  font-family: "JetBrains Mono", monospace;
-  font-size: 0.68rem;
-  color: var(--sq-fg-faint);
-  margin: -0.4rem 0 1.6rem;
-  padding-bottom: 0.9rem;
-  border-bottom: 1px dashed var(--sq-line);
-}
-
-/* ==========================================================================
-   HOMEPAGE DASHBOARD
-   ========================================================================== */
-.sq-hero {
-  border: 1px solid var(--sq-line);
-  background: linear-gradient(180deg, var(--sq-bg-2), var(--sq-bg));
-  border-radius: 6px;
-  padding: 1.8rem 2rem;
-  margin: 1.2rem 0 2rem;
-}
-.sq-hero .kicker {
-  font-family: "JetBrains Mono", monospace;
-  color: var(--sq-cyan);
-  letter-spacing: 4px;
-  font-size: 0.7rem;
-}
-.sq-hero h1 {
-  font-size: 2.6rem !important;
-  letter-spacing: 6px;
-  margin: 0.2rem 0 0.1rem !important;
-  border: 0 !important;
-}
-.sq-hero .sub { color: var(--sq-fg-muted); font-size: 0.8rem; }
-
-.sq-principle {
-  border-left: 2px solid var(--sq-cyan-dim);
-  padding: 0.4rem 0 0.4rem 1.2rem;
-  margin: 1.6rem 0;
-  font-style: italic;
-  color: var(--sq-fg);
-  max-width: 47rem;
-}
-
-/* Status dashboard table */
-.sq-dash {
-  width: 100%;
-  max-width: 40rem;
-  border-collapse: collapse;
-  font-family: "JetBrains Mono", monospace;
-  font-size: 0.74rem;
-}
-.sq-dash td {
-  padding: 0.5em 0.6em;
-  border-bottom: 1px solid var(--sq-line);
-}
-.sq-dash td:first-child { color: var(--sq-fg-muted); }
-.sq-dash td:last-child  { text-align: right; color: var(--sq-fg); }
-.v-done   { color: var(--sq-green) !important; }
-.v-active { color: var(--sq-cyan) !important; }
-.v-warn   { color: var(--sq-amber) !important; }
-.v-none   { color: var(--sq-fg-faint) !important; }
-
-/* Active counter motif */
-.sq-counter {
-  font-family: "JetBrains Mono", monospace;
-  letter-spacing: 3px;
-  color: var(--sq-green);
-  border: 1px solid var(--sq-line);
-  background: var(--sq-bg-3);
-  padding: 0.2em 0.7em;
-  border-radius: 3px;
-  display: inline-block;
-}
-
-/* Cards grid (character index etc.) */
-.sq-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 0.9rem;
-  margin: 1.4rem 0;
-}
-.sq-card {
-  border: 1px solid var(--sq-line);
-  background: var(--sq-bg-2);
-  border-radius: 5px;
-  padding: 0.9rem 1rem;
-}
-.sq-card h3 { margin: 0 0 0.3rem !important; border: 0 !important; font-size: 0.95rem; }
-.sq-card .role { color: var(--sq-fg-muted); font-size: 0.72rem; }
-
-/* Author-only warning */
-.sq-authoronly {
-  border: 1px solid var(--sq-red);
-  background: rgba(207,107,107,0.06);
-  border-radius: 5px;
-  padding: 1rem 1.2rem;
-  color: var(--sq-fg);
-}
-.sq-authoronly strong { color: var(--sq-red); letter-spacing: 1px; }
+/* Inline code + fences */
+.md-typeset code { font-size: 0.8em; padding: 0.12em 0.4em; border-radius: 3px; }
+.md-typeset pre > code { padding: 1em 1.1em; }
 
 /* Tables — quiet grid */
 .md-typeset table:not([class]) {
-  font-size: 0.74rem;
+  font-size: 0.76rem;
   border: 1px solid var(--sq-line);
 }
 .md-typeset table:not([class]) th {
   background: var(--sq-bg-3);
   color: var(--sq-fg-muted);
   font-weight: 600;
+  letter-spacing: 0.02em;
 }
 
-/* Footer */
+/* Heading permalink marks: only on hover, and never on the hero */
+.md-typeset .headerlink { color: var(--sq-fg-faint); opacity: 0; transition: opacity .15s; }
+.md-typeset :hover > .headerlink { opacity: 0.5; }
+.sq-hero .headerlink { display: none !important; }
+
+/* ==========================================================================
+   CHROME — header, tabs, sidebars, footer
+   ========================================================================== */
+.md-header {
+  background: var(--sq-bg-2);
+  color: var(--sq-fg);
+  border-bottom: 1px solid var(--sq-line);
+  box-shadow: none;
+}
+.md-header__title { font-weight: 600; letter-spacing: 2px; }
+.md-tabs { background: var(--sq-bg-2); color: var(--sq-fg); }
+.md-search__form { background: var(--sq-bg-3); }
+.md-search__input { color: var(--sq-fg); }
+
+.md-sidebar { font-size: 0.72rem; }
+.md-nav__title { color: var(--sq-fg-faint); letter-spacing: 1px; text-transform: uppercase; }
+.md-nav__link--active, .md-nav__link:focus, .md-nav__link:hover { color: var(--sq-cyan); }
+
 .md-footer { background: var(--sq-bg-2); }
 .md-footer-meta { background: var(--sq-bg); }
+
+/* ==========================================================================
+   HERO — open, no card
+   ========================================================================== */
+.sq-hero {
+  padding: 2.4rem 0 1.6rem;
+  margin: 0.4rem 0 2.4rem;
+  border: 0;
+  background: none;
+  border-bottom: 1px solid var(--sq-line);
+}
+.sq-hero .kicker {
+  display: inline-block;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  color: var(--sq-cyan);
+  margin-bottom: 0.6rem;
+}
+.sq-hero h1 {
+  font-family: "Source Serif 4", Georgia, serif !important;
+  font-weight: 600;
+  font-size: clamp(3.1rem, 8vw, 5rem) !important;
+  line-height: 0.96;
+  letter-spacing: 0.11em;
+  margin: 0 0 0.7rem !important;
+  padding: 0 !important;
+  border: 0 !important;
+  color: var(--sq-fg);
+}
+.sq-hero .sub {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-style: italic;
+  font-size: 1.08rem;
+  color: var(--sq-fg-muted);
+}
+
+/* Protected principle epigraph */
+.sq-principle {
+  border-left: 2px solid var(--sq-cyan-dim);
+  padding: 0.5rem 0 0.5rem 1.3rem;
+  margin: 2rem 0;
+  font-style: italic;
+  color: var(--sq-fg);
+  max-width: 40rem;
+}
+.sq-principle strong {
+  display: block;
+  font-style: normal;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--sq-cyan);
+  margin-bottom: 0.5rem;
+}
+
+/* Page-level status line */
+.sq-status {
+  display: block;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.68rem;
+  line-height: 1.6;
+  color: var(--sq-fg-faint);
+  margin: -0.2rem 0 1.8rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px dashed var(--sq-line);
+}
+.sq-status .sq-badge { vertical-align: baseline; }
+
+/* ==========================================================================
+   STATUS BADGES  —  CANON / PROVISIONAL / OPEN / REJECTED
+   ========================================================================== */
+.sq-badge {
+  display: inline-block;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  padding: 0.14em 0.55em;
+  border-radius: 3px;
+  border: 1px solid currentColor;
+  vertical-align: middle;
+  line-height: 1.55;
+  white-space: nowrap;
+}
+.sq-badge::before { margin-right: 0.42em; }
+.sq-badge.canon       { color: var(--sq-green); }
+.sq-badge.canon::before       { content: "\25CF"; }   /* ● */
+.sq-badge.provisional { color: var(--sq-amber); }
+.sq-badge.provisional::before { content: "\25C6"; }   /* ◆ */
+.sq-badge.open        { color: var(--sq-fg-muted); }
+.sq-badge.open::before        { content: "\25CB"; }   /* ○ */
+.sq-badge.rejected    { color: var(--sq-red); }
+.sq-badge.rejected::before    { content: "\00D7"; }   /* × */
+
+/* ==========================================================================
+   HOMEPAGE DASHBOARD
+   ========================================================================== */
+.sq-counter {
+  font-family: "JetBrains Mono", monospace;
+  letter-spacing: 0.18em;
+  color: var(--sq-green);
+  border: 1px solid var(--sq-line);
+  background: var(--sq-bg-3);
+  padding: 0.2em 0.7em;
+  border-radius: 3px;
+  display: inline-block;
+  font-size: 0.78em;
+}
+
+.sq-dash {
+  width: 100%;
+  max-width: 34rem;
+  border-collapse: collapse;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.74rem;
+  margin: 1.2rem 0;
+}
+.sq-dash td { padding: 0.55em 0.6em; border-bottom: 1px solid var(--sq-line); }
+.sq-dash td:first-child { color: var(--sq-fg-muted); }
+.sq-dash td:last-child  { text-align: right; color: var(--sq-fg); }
+.v-done   { color: var(--sq-green) !important; }
+.v-active { color: var(--sq-cyan)  !important; }
+.v-warn   { color: var(--sq-amber) !important; }
+.v-none   { color: var(--sq-fg-faint) !important; }
+
+/* Cards grid (character index etc.) */
+.sq-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 0.9rem;
+  margin: 1.6rem 0;
+}
+.sq-card {
+  border: 1px solid var(--sq-line);
+  background: var(--sq-bg-2);
+  border-radius: 6px;
+  padding: 1rem 1.1rem;
+}
+.sq-card h3 { margin: 0 0 0.35rem !important; border: 0 !important; font-size: 0.98rem; }
+.sq-card .role { color: var(--sq-fg-muted); font-size: 0.72rem; }
+
+/* Author-only warning */
+.sq-authoronly {
+  border: 1px solid var(--sq-red);
+  background: color-mix(in srgb, var(--sq-red) 8%, transparent);
+  border-radius: 6px;
+  padding: 1rem 1.2rem;
+  color: var(--sq-fg);
+}
+.sq-authoronly strong { color: var(--sq-red); letter-spacing: 0.06em; }

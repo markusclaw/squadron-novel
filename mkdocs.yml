@@ -12,9 +12,20 @@ theme:
   name: material
   language: en
   palette:
-    scheme: slate            # dark, always
-    primary: black
-    accent: cyan
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black
+      accent: cyan
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: white
+      accent: cyan
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark
   font:
     text: Source Serif 4     # long-form reading
     code: JetBrains Mono
