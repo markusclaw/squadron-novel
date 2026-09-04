@@ -1,0 +1,137 @@
+site_name: SQUADRON
+site_description: >-
+  SQUADRON — a story development archive and novel reference system.
+  Canon, world, characters, chronology, and manuscript for Book One.
+# Update this to your Cloudflare Pages URL once the project is created.
+site_url: https://squadron-novel.pages.dev/
+copyright: SQUADRON — private author archive. Development build.
+
+docs_dir: docs
+
+theme:
+  name: material
+  language: en
+  palette:
+    scheme: slate            # dark, always
+    primary: black
+    accent: cyan
+  font:
+    text: Source Serif 4     # long-form reading
+    code: JetBrains Mono
+  features:
+    - navigation.sections
+    - navigation.top
+    - navigation.indexes
+    - navigation.footer
+    - toc.follow
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+  icon:
+    repo: fontawesome/brands/github
+
+extra_css:
+  - stylesheets/extra.css
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.keys
+  - attr_list
+  - md_in_html
+  - def_list
+  - tables
+  - toc:
+      permalink: true
+      toc_depth: 3
+
+plugins:
+  - search
+
+extra:
+  status_legend: "● CANON   ◆ PROVISIONAL   ○ OPEN   × REJECTED"
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/markusclaw/squadron-novel
+
+# Information architecture — see docs/foundation for how statuses work.
+nav:
+  - Home: index.md
+  - Foundation:
+      - foundation/index.md
+      - Premise: foundation/premise.md
+      - Themes: foundation/themes.md
+      - Narrative Rules: foundation/narrative_rules.md
+      - Current Foundation (v0.2): foundation/foundation_v0.2.md
+      - Open Questions: foundation/unresolved.md
+  - Story — Book One:
+      - novel/book_01/index.md
+      - Treatment: novel/book_01/treatment.md
+      - Chronology: novel/book_01/chronology.md
+      - Character Arcs: novel/book_01/character_arcs.md
+      - Prose Bible: novel/book_01/prose_bible.md
+      - Pacing Map: novel/book_01/pacing_map.md
+      - Chapter Cards: novel/book_01/chapter_cards/index.md
+      - Manuscript: novel/book_01/manuscript/index.md
+  - Characters:
+      - characters/index.md
+      - Greg: characters/greg.md
+      - Markus: characters/markus.md
+      - Rafa: characters/rafa.md
+      - RJ: characters/rj.md
+      - Kristina: characters/kristina.md
+      - Veyr: characters/veyr.md
+      - The Older Man: characters/older_man.md
+      - Adam: characters/adam.md
+      - Supporting Cast: characters/supporting_cast.md
+  - World:
+      - world/index.md
+      - Colony World: world/colony_world.md
+      - Home Town: world/home_town.md
+      - The Lattice: world/lattice.md
+      - Relays: world/relays.md
+      - Devastation War: world/devastation_war.md
+      - Frontier War: world/frontier_war.md
+      - Continuity: world/continuity.md
+      - URRD Command: world/urrd_command.md
+      - Military Structure: world/military_structure.md
+      - Factions: world/factions.md
+  - History:
+      - history/index.md
+      - Master Timeline: history/master_timeline.md
+      - Greg + Markus Childhood: history/greg_markus_childhood.md
+      - Markus Origin: history/markus_origin.md
+      - House on the Hill: history/house_on_the_hill.md
+      - Older Man's Departure: history/older_man_departure.md
+      - Self-Authorship: history/self_authorship.md
+      - Requisition Crisis: history/requisition_crisis.md
+      - Devastation Day: history/devastation_day.md
+      - Reunion: history/reunion.md
+  - White Ship:
+      - mystery/index.md
+      - White Ship: mystery/white_ship.md
+      - Phantom Events: mystery/phantom_events.md
+      - Clue Ledger: mystery/clue_ledger.md
+      - Reader Theories: mystery/reader_theories.md
+      - Author-Only Rules: mystery/author_only_rules.md
+  - Archive:
+      - Scenes: scenes/index.md
+      - Audits: audits/index.md
+      - Decisions: DECISIONS.md
+      - Canon Ledger: CANON_LEDGER.md
+      - Rejected Concepts: audits/rejected_concepts.md
+      - Changelog: CHANGELOG.md
+      - Exports: exports/README.md
+  - Adaptation:
+      - game/index.md
+      - Adaptation Rules: game/adaptation_rules.md
+      - Missions: game/missions.md
+      - HUD Communications: game/hud_comms.md
+      - Character States: game/character_states.md
+      - Art / Illustration Plans: art/index.md
